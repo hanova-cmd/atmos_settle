@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute w-2 h-2 bg-purple-400/30 rounded-full animate-twinkle" style="top:15%; left:8%;"></div>
+        <div class="absolute w-1 h-1 bg-blue-400/20 rounded-full animate-twinkle" style="top:35%; left:85%; animation-delay: 1.2s;"></div>
+        <div class="absolute w-3 h-3 bg-purple-300/40 rounded-full animate-twinkle" style="top:55%; left:25%; animation-delay: 2.5s;"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto">
+        <div class="inline-flex items-center px-6 py-3 rounded-2xl glass-effect mb-10 border border-purple-500/30 deep-shadow">
+            <span class="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse deep-shadow"></span>
+            <span class="text-sm font-bold text-purple-300">AAERO Space Settlement Competition 2024</span>
+        </div>
+        
+        <h1 class="title-font text-6xl md:text-8xl font-black mb-6 leading-tight">
+            <span class="text-gradient-primary">
+                TEAM
+            </span>
+            <br>
+            <span class="text-gradient-secondary">
+                ATMOS
+            </span>
+        </h1>
+        
+        <p class="text-2xl md:text-3xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light">
+            Designing the future of humanity beyond Earth
+        </p>
+        
+        <p class="text-xl text-gray-400 mb-14 max-w-3xl mx-auto leading-relaxed">
+            High school innovators competing in the AAERO Space Settlement Competition to design sustainable extraterrestrial habitats for humanity's future among the stars.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+            <a href="/mission/" class="group relative px-12 py-5 bg-gradient-to-r from-purple-700 to-blue-700 hover:from-purple-600 hover:to-blue-600 text-white font-black text-lg rounded-2xl transition-all duration-300 transform hover:scale-105 deep-shadow smooth-transition">
+                <span class="relative z-10 flex items-center">
+                    View Our Mission
+                    <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform duration-300"></i>
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300 -z-10"></div>
+            </a>
+            
+            <a href="/competition/" class="group px-12 py-5 glass-effect border border-purple-500/40 hover:border-purple-400/60 text-purple-300 font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 smooth-transition">
+                <span class="flex items-center">
+                    <i class="fas fa-trophy mr-3 text-lg"></i>
+                    About AAERO
+                </span>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div class="text-center glass-effect rounded-2xl p-8 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 deep-shadow">
+                <div class="text-4xl md:text-5xl font-black text-purple-400 mb-3">5+</div>
+                <div class="text-gray-400 font-semibold uppercase tracking-wider text-sm">Team Members</div>
+            </div>
+            <div class="text-center glass-effect rounded-2xl p-8 border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 deep-shadow">
+                <div class="text-4xl md:text-5xl font-black text-blue-400 mb-3">1</div>
+                <div class="text-gray-400 font-semibold uppercase tracking-wider text-sm">Grand Mission</div>
+            </div>
+            <div class="text-center glass-effect rounded-2xl p-8 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 deep-shadow">
+                <div class="text-4xl md:text-5xl font-black text-purple-400 mb-3">∞</div>
+                <div class="text-gray-400 font-semibold uppercase tracking-wider text-sm">Possibilities</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="relative z-10 mt-12">
+        <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=500" alt="Space Habitat Concept" 
+             class="w-80 md:w-96 animate-float cursor-pointer hover:scale-110 transition-transform duration-500 rounded-full deep-shadow">
+        <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-64 h-8 bg-purple-600/15 blur-2xl rounded-full"></div>
+    </div>
+</section>
+
+<section class="py-24 px-4 dark-bg border-t border-purple-500/10">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="title-font text-5xl md:text-6xl font-black text-center mb-16 text-gradient-primary">
+            AAERO CHALLENGE
+        </h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-effect rounded-2xl p-8 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group deep-shadow">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-900 to-purple-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                    <i class="fas fa-home text-purple-300 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-4">Habitat Design</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Create sustainable living spaces for humans in extraterrestrial environments with limited resources.
+                </p>
+            </div>
+            
+            <div class="glass-effect rounded-2xl p-8 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 group deep-shadow">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                    <i class="fas fa-recycle text-blue-300 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-4">Life Support</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Develop closed-loop systems for air, water, and food production in isolated space settlements.
+                </p>
+            </div>
+            
+            <div class="glass-effect rounded-2xl p-8 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 group deep-shadow">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-900 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                    <i class="fas fa-bolt text-purple-300 text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white mb-4">Energy Solutions</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Design innovative power generation and distribution systems for permanent space habitats.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-4 gradient-bg border-t border-purple-500/10">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="title-font text-5xl md:text-6xl font-black text-center mb-4 text-gradient-primary">
+            OUR TEAM
+        </h2>
+        <p class="text-xl text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+            Passionate high school students united by a common vision of humanity's future in space
+        </p>
+        
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="glass-effect rounded-2xl p-8 border border-purple-500/30 deep-shadow">
+                    <h3 class="text-3xl font-black text-white mb-6">Why We Compete</h3>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        As the next generation of space pioneers, we believe that the future of humanity lies beyond Earth. 
+                        The AAERO Space Settlement Competition gives us the platform to turn our visionary ideas into 
+                        practical solutions for interplanetary living.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-900 to-green-700 rounded-xl flex items-center justify-center deep-shadow">
+                            <i class="fas fa-users text-green-300 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-black text-white">Young Innovators</h4>
+                            <p class="text-gray-400">High school students with big dreams</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-effect rounded-2xl p-6 border border-blue-500/30 deep-shadow text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas-cogs text-blue-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Engineering</h4>
+                    <p class="text-gray-400 text-sm">Structural & systems design</p>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 border border-green-500/30 deep-shadow text-center">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-green-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Sustainability</h4>
+                    <p class="text-gray-400 text-sm">Life support systems</p>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 border border-purple-500/30 deep-shadow text-center">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Innovation</h4>
+                    <p class="text-gray-400 text-sm">Creative solutions</p>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 border border-yellow-500/30 deep-shadow text-center">
+                    <div class="w-16 h-16 bg-yellow-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-rocket text-yellow-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Space Tech</h4>
+                    <p class="text-gray-400 text-sm">Advanced technologies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="dark-bg border-t border-purple-500/10 py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8 mb-12">
+            <div class="md:col-span-2">
+                <div class="flex items-center space-x-3 mb-6">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-900 to-purple-700 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-wind text-purple-300"></i>
+                    </div>
+                    <span class="title-font text-2xl font-black text-gradient-primary">Team Atmos</span>
+                </div>
+                <p class="text-gray-400 leading-relaxed max-w-md">
+                    High school team competing in the AAERO Space Settlement Competition 2024. 
+                    Designing sustainable futures for humanity beyond Earth.
+                </p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-twitter text-gray-400 hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-instagram text-gray-400 hover:text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-purple-600 rounded-lg flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-github text-gray-400 hover:text-white"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-black text-white mb-6">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="/about/" class="text-gray-400 hover:text-purple-300 transition-colors">About Team</a></li>
+                    <li><a href="/mission/" class="text-gray-400 hover:text-purple-300 transition-colors">Our Mission</a></li>
+                    <li><a href="/competition/" class="text-gray-400 hover:text-purple-300 transition-colors">AAERO Competition</a></li>
+                    <li><a href="/contact/" class="text-gray-400 hover:text-purple-300 transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="text-lg font-black text-white mb-6">Competition</h3>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition-colors">Challenge Brief</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition-colors">Timeline</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition-colors">Resources</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-purple-300 transition-colors">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="pt-8 border-t border-purple-500/10">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    © 2024 Team Atmos - AAERO Space Settlement Competition. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <span class="text-gray-500 text-sm">Proudly representing our school</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}My Space Project{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/output.css' %}">
+  <script src="{% static 'js/language.js' %}" defer></script>
+</head>
+
+<body class="relative text-white overflow-x-hidden bg-black">
+
+  <div class="absolute inset-0 bg-[url('/static/img/stars-bg.webp')] bg-cover bg-center opacity-40 animate-pulse"></div>
+
+  <nav class="relative z-10 flex justify-between items-center px-10 py-6 bg-black/50 backdrop-blur-md border-b border-purple-800/40">
+    <h1 class="text-3xl font-extrabold tracking-wide text-purple-400">
+      🌌 SpaceVision
+    </h1>
+    <ul class="flex gap-10 text-lg">
+      <li><a href="{% url 'home' %}" class="hover:text-purple-300 transition">Home</a></li>
+      <li><a href="{% url 'about' %}" class="hover:text-purple-300 transition">About</a></li>
+      <li><a href="{% url 'contact' %}" class="hover:text-purple-300 transition">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-4">
+      <button id="lang-en" class="text-sm hover:text-purple-300 transition">EN</button>
+      <span class="text-gray-600">|</span>
+      <button id="lang-ru" class="text-sm hover:text-purple-300 transition">RU</button>
+    </div>
+  </nav>
+
+  <main class="relative z-10">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="relative z-10 mt-20 py-8 text-center text-gray-400 text-sm border-t border-purple-800/40">
+    © 2025 SpaceVision. All rights reserved.
+  </footer>
+
+</body>
+</html>
