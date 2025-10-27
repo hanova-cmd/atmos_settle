@@ -22,18 +22,6 @@
             background: linear-gradient(135deg, #050510 0%, #0a0a1a 25%, #0c0c1f 50%, #0a1429 75%, #1a1337 100%);
         }
         
-        .dark-bg {
-            background: #050510;
-        }
-        
-        .stars-bg {
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.05) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.03) 1px, transparent 2px);
-            background-size: 500px 500px, 300px 300px;
-            background-position: 0 0, 50px 100px;
-        }
-        
         .glass-effect {
             background: rgba(5, 5, 16, 0.7);
             backdrop-filter: blur(20px);
@@ -46,17 +34,13 @@
             50% { transform: translateY(-25px) rotate(3deg); }
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.6; }
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
         
         .animate-float {
             animation: float 8s ease-in-out infinite;
-        }
-        
-        .animate-twinkle {
-            animation: twinkle 5s ease-in-out infinite;
         }
         
         .mobile-menu {
@@ -80,25 +64,55 @@
             background-clip: text;
         }
         
-        .text-gradient-secondary {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
         .smooth-transition {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: starTwinkle linear infinite;
+        }
+
+        .star.small {
+            width: 1px;
+            height: 1px;
+            box-shadow: 0 0 4px white;
+        }
+
+        .star.medium {
+            width: 2px;
+            height: 2px;
+            box-shadow: 0 0 6px white;
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 10px white;
+        }
     </style>
 </head>
-<body class="gradient-bg stars-bg min-h-screen text-white overflow-x-hidden">
+<body class="gradient-bg min-h-screen text-white overflow-x-hidden">
+    <div id="starsContainer" class="stars-container"></div>
+    
     <nav class="glass-effect fixed w-full z-50 deep-shadow">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <div class="w-12 h-12 bg-gradient-to-br from-purple-900 to-purple-700 rounded-2xl flex items-center justify-center deep-shadow">
-                        <i class="fas fa-wind text-purple-300 text-xl" style="display: none;"></i>
+                        <i class="fas fa-wind text-purple-300 text-xl"></i>
                     </div>
                     <a href="/" class="title-font text-2xl font-black text-gradient-primary">
                         Team Atmos
@@ -179,15 +193,36 @@
             document.querySelectorAll('#mobileMenu a').forEach(link => {
                 link.addEventListener('click', toggleMobileMenu);
             });
+
+            const container = document.getElementById('starsContainer');
+            if (container) {
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    
+                    const sizes = ['small', 'medium', 'large'];
+                    const size = sizes[Math.floor(Math.random() * sizes.length)];
+                    
+                    const left = Math.random() * 100;
+                    const top = Math.random() * 100;
+                    
+                    const duration = Math.random() * 8 + 4;
+                    const delay = Math.random() * 5;
+                    
+                    star.className = `star ${size}`;
+                    star.style.cssText = `
+                        left: ${left}%;
+                        top: ${top}%;
+                        animation-duration: ${duration}s;
+                        animation-delay: ${delay}s;
+                    `;
+                    
+                    container.appendChild(star);
+                }
+                console.log('Stars created successfully!');
+            }
         });
     </script>
 
-<script src="{% static 'js/stars.js' %}"></script>
-
-<script src="{% static 'js/language.js' %}"></script>
-
-<script>
-    console.log('Stars.js loaded:', typeof Stars !== 'undefined');
-</script>
+    <script src="{% static 'js/language.js' %}"></script>
 </body>
 </html>
