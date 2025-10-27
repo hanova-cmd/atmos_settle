@@ -34,8 +34,9 @@
             <div class="relative">
                 <div class="glass-effect rounded-2xl p-8 border border-blue-500/30 deep-shadow">
                     <div class="text-center">
-                        <div class="w-32 h-32 bg-gradient-to-br from-purple-900 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 deep-shadow">
-                            <i class="fas fa-users text-purple-300 text-4xl"></i>
+                        <!-- Заменил иконку на фото команды -->
+                        <div class="w-32 h-32 bg-gradient-to-br from-purple-900 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 deep-shadow overflow-hidden">
+                            <img src="/static/img/team-photo.jpg" alt="Team Atmos" class="w-full h-full object-cover">
                         </div>
                         <h3 class="text-2xl font-black text-white mb-4">Young Visionaries</h3>
                         <p class="text-gray-400 leading-relaxed">
@@ -77,36 +78,43 @@
 
         <div class="glass-effect rounded-2xl p-8 border border-purple-500/30 deep-shadow">
             <h2 class="text-3xl font-black text-purple-300 mb-8 text-center">Team Members</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="text-center">
-                    <div class="w-24 h-24 bg-gradient-to-br from-purple-900 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4 deep-shadow">
-                        <i class="fas fa-user-astronaut text-purple-300 text-2xl"></i>
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-900 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4 deep-shadow overflow-hidden">
+                        <img src="/static/img/asem-photo.jpg" alt="Asem" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="text-lg font-black text-white mb-2">Team Lead</h4>
-                    <p class="text-gray-400">Project Management & Strategy</p>
+                    <h4 class="text-lg font-black text-white mb-2">Asem</h4>
+                    <p class="text-gray-400">Team Leader & Project Manager</p>
                 </div>
                 
                 <div class="text-center">
-                    <div class="w-24 h-24 bg-gradient-to-br from-blue-900 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 deep-shadow">
-                        <i class="fas fa-cogs text-blue-300 text-2xl"></i>
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-900 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 deep-shadow overflow-hidden">
+                        <img src="/static/img/nazerke-photo.jpg" alt="Nazerke" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="text-lg font-black text-white mb-2">Engineering Team</h4>
-                    <p class="text-gray-400">Structural & Systems Design</p>
+                    <h4 class="text-lg font-black text-white mb-2">Nazerke</h4>
+                    <p class="text-gray-400">Programmer & Innovator</p>
                 </div>
                 
+                <!-- Dilnaz -->
                 <div class="text-center">
-                    <div class="w-24 h-24 bg-gradient-to-br from-green-900 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4 deep-shadow">
-                        <i class="fas fa-leaf text-green-300 text-2xl"></i>
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-900 to-green-700 rounded-full flex items-center justify-center mx-auto mb-4 deep-shadow overflow-hidden">
+                        <img src="/static/img/dilnaz-photo.jpg" alt="Dilnaz" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="text-lg font-black text-white mb-2">Life Sciences</h4>
-                    <p class="text-gray-400">Biology & Environmental Systems</p>
+                    <h4 class="text-lg font-black text-white mb-2">Dilnaz</h4>
+                    <p class="text-gray-400">Project Analyzer & Space Researcher</p>
                 </div>
             </div>
             
-            <div class="mt-8 text-center">
-                <p class="text-gray-400">
-                    And several other dedicated students contributing to research, design, and implementation.
-                </p>
+            <!-- Фото команды под Team Members -->
+            <div class="mt-12 text-center">
+                <div class="max-w-2xl mx-auto">
+                    <div class="w-48 h-48 bg-gradient-to-br from-purple-900 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 deep-shadow overflow-hidden">
+                        <img src="/static/img/team-members-photo.jpg" alt="Team Members" class="w-full h-full object-cover">
+                    </div>
+                    <p class="text-gray-400 text-lg">
+                        Our dedicated team working together to push the boundaries of space exploration.
+                    </p>
+                </div>
             </div>
         </div>
 
