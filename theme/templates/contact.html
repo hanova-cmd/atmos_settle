@@ -16,32 +16,27 @@
             <div class="glass-effect rounded-2xl p-8 border border-purple-500/20">
                 <h2 class="text-2xl font-bold text-purple-300 mb-6" data-translate="getInTouch">Get In Touch</h2>
                 
-                <form class="space-y-6" id="contactForm">
+                <form class="space-y-6" method="POST">
+                    {% csrf_token %}
+                    
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-300 mb-3 font-semibold" data-translate="firstName">First Name</label>
-                            <input type="text" 
+                            <input type="text" name="name" required
                                    class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-all duration-300"
                                    placeholder="John">
                         </div>
                         <div>
-                            <label class="block text-gray-300 mb-3 font-semibold" data-translate="lastName">Last Name</label>
-                            <input type="text" 
+                            <label class="block text-gray-300 mb-3 font-semibold" data-translate="email">Email Address</label>
+                            <input type="email" name="email" required
                                    class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-all duration-300"
-                                   placeholder="Doe">
+                                   placeholder="your.email@example.com">
                         </div>
                     </div>
                     
                     <div>
-                        <label class="block text-gray-300 mb-3 font-semibold" data-translate="email">Email Address</label>
-                        <input type="email" 
-                               class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-all duration-300"
-                               placeholder="your.email@example.com">
-                    </div>
-                    
-                    <div>
                         <label class="block text-gray-300 mb-3 font-semibold" data-translate="subject">Subject</label>
-                        <select class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-all duration-300">
+                        <select name="subject" required class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-all duration-300">
                             <option value="" data-translate="selectSubject">Select a subject</option>
                             <option value="partnership" data-translate="partnership">Partnership Opportunities</option>
                             <option value="career" data-translate="career">Career Opportunities</option>
@@ -53,13 +48,13 @@
                     
                     <div>
                         <label class="block text-gray-300 mb-3 font-semibold" data-translate="message">Your Message</label>
-                        <textarea rows="5" 
+                        <textarea name="message" rows="5" required
                                   class="w-full bg-gray-800/50 border border-gray-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-all duration-300 resize-none"
                                   placeholder="Tell us about your space exploration interests..."></textarea>
                     </div>
                     
                     <div class="flex items-center mb-4">
-                        <input type="checkbox" id="newsletter" class="w-4 h-4 text-purple-600 bg-gray-800 border-gray-600 rounded focus:ring-purple-500">
+                        <input type="checkbox" id="newsletter" name="newsletter" class="w-4 h-4 text-purple-600 bg-gray-800 border-gray-600 rounded focus:ring-purple-500">
                         <label for="newsletter" class="ml-3 text-gray-300 text-sm" data-translate="newsletter">
                             Subscribe to our space mission updates and newsletter
                         </label>
@@ -71,6 +66,16 @@
                         <i class="fas fa-paper-plane ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
                     </button>
                 </form>
+
+                {% if messages %}
+                <div class="mt-4">
+                    {% for message in messages %}
+                    <div class="bg-green-500/20 border border-green-500/30 text-green-300 px-4 py-3 rounded-xl">
+                        ✅ {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
 
             <div class="space-y-6">
@@ -99,14 +104,8 @@
                         <div>
                             <h3 class="text-xl font-bold text-white mb-2" data-translate="emailUs">Email Us</h3>
                             <div class="space-y-2">
-                                <a href="steppetech@gmail.com" class="block text-gray-400 hover:text-purple-300 transition-colors">
+                                <a href="mailto:steppetech@gmail.com" class="block text-gray-400 hover:text-purple-300 transition-colors">
                                     steppetech@gmail.com
-                                </a>
-                                <a href="mailto:support@spaceexplorer.com" class="block text-gray-400 hover:text-purple-300 transition-colors">
-                                    support@spaceexplorer.com
-                                </a>
-                                <a href="mailto:careers@spaceexplorer.com" class="block text-gray-400 hover:text-purple-300 transition-colors">
-                                    careers@spaceexplorer.com
                                 </a>
                             </div>
                         </div>
@@ -160,8 +159,8 @@
                             <p class="text-gray-400 mb-3" data-translate="emergencyContact">
                                 For urgent mission-related communications
                             </p>
-                            <a href="tel:+15559998888" class="text-red-400 hover:text-red-300 font-semibold transition-colors">
-                                +1 (555) 999-8888
+                            <a href="tel:+87073467288" class="text-red-400 hover:text-red-300 font-semibold transition-colors">
+                                +8 707 346 72 88
                             </a>
                         </div>
                     </div>
@@ -207,27 +206,18 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const contactForm = document.getElementById('contactForm');
+        const contactForm = document.querySelector('form[method="POST"]');
         
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             
             submitBtn.innerHTML = `
-                <i class="fas fa-check mr-2"></i>
-                <span data-translate="messageSent">Message Sent!</span>
+                <i class="fas fa-spinner fa-spin mr-2"></i>
+                <span data-translate="sending">Sending...</span>
             `;
-            submitBtn.classList.remove('from-purple-600', 'to-pink-600');
-            submitBtn.classList.add('from-green-600', 'to-green-700');
+            submitBtn.disabled = true;
             
-            setTimeout(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.classList.remove('from-green-600', 'to-green-700');
-                submitBtn.classList.add('from-purple-600', 'to-pink-600');
-                contactForm.reset();
-            }, 3000);
         });
     });
 </script>
