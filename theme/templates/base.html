@@ -182,9 +182,13 @@
             });
         });
     </script>
-    
-    <script src="{% static 'js/stars.js' %}"></script>
-    
-    <script src="{% static 'js/language.js' %}"></script>
+
+<script src="{% static 'js/stars.js' %}"></script>
+
+<script src="{% static 'js/language.js' %}"></script>
+
+<script>
+    console.log('Stars.js loaded:', typeof Stars !== 'undefined');
+</script>
 </body>
 </html>
