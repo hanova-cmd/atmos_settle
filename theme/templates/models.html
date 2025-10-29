@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}3D Models Gallery - Team Atmos{% endblock %}
+
+{% block content %}
+<section class="min-h-screen pt-20 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute w-2 h-2 bg-purple-400/30 rounded-full animate-pulse" style="top:15%; left:8%;"></div>
+        <div class="absolute w-1 h-1 bg-blue-400/20 rounded-full animate-pulse" style="top:35%; left:85%; animation-delay: 1.2s;"></div>
+        <div class="absolute w-3 h-3 bg-purple-300/40 rounded-full animate-pulse" style="top:55%; left:25%; animation-delay: 2.5s;"></div>
+        <div class="absolute w-2 h-2 bg-blue-300/30 rounded-full animate-pulse" style="top:75%; left:70%; animation-delay: 1.8s;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center px-6 py-3 rounded-2xl glass-effect mb-8 border border-purple-500/30 deep-shadow">
+                <span class="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></span>
+                <span class="text-sm font-bold text-purple-300">Interactive 3D Gallery</span>
+            </div>
+            
+            <h1 class="title-font text-5xl md:text-7xl font-black mb-6 text-gradient-primary">
+                3D MODELS
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+                Explore our detailed 3D models of space habitats and settlement concepts created for the AAERO competition
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-20">
+            <div class="glass-effect rounded-2xl p-8 border border-purple-500/30 deep-shadow hover:border-purple-400/50 transition-all duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-900 to-purple-700 rounded-2xl flex items-center justify-center mr-4 deep-shadow">
+                        <i class="fas fa-satellite text-purple-300 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-black text-white">Modern Island Architecture</h3>
+                        <p class="text-gray-400">Primary Design</p>
+                    </div>
+                </div>
+                
+                <div id="model1Container" class="w-full h-80 bg-gray-900/50 rounded-xl mb-6 flex items-center justify-center border border-purple-500/20 relative overflow-hidden">
+                    <div class="text-center z-10">
+                        <i class="fas fa-spinner fa-spin text-4xl text-purple-400 mb-4"></i>
+                        <p class="text-gray-400">Loading 3D Model...</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="text-center glass-effect rounded-lg p-3 border border-purple-500/20">
+                        <div class="text-lg font-black text-purple-400">2.5K</div>
+                        <div class="text-xs text-gray-400">Vertices</div>
+                    </div>
+                    <div class="text-center glass-effect rounded-lg p-3 border border-blue-500/20">
+                        <div class="text-lg font-black text-blue-400">5.1K</div>
+                        <div class="text-xs text-gray-400">Faces</div>
+                    </div>
+                    <div class="text-center glass-effect rounded-lg p-3 border border-green-500/20">
+                        <div class="text-lg font-black text-green-400">4.2MB</div>
+                        <div class="text-xs text-gray-400">Size</div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Our flagship orbital habitat design featuring advanced life support systems, radiation shielding, and sustainable resource management for long-duration space missions.
+                </p>
+                
+                <div class="flex space-x-3">
+                    <button onclick="rotateModel('model1')" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 deep-shadow">
+                        <i class="fas fa-sync-alt mr-2"></i>Rotate Model
+                    </button>
+                    <button onclick="zoomModel('model1', 'in')" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 deep-shadow">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button onclick="zoomModel('model1', 'out')" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 deep-shadow">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="glass-effect rounded-2xl p-8 border border-blue-500/30 deep-shadow hover:border-blue-400/50 transition-all duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl flex items-center justify-center mr-4 deep-shadow">
+                        <i class="fas fa-moon text-blue-300 text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-black text-white">O'Neill Cylinder Interior</h3>
+                        <p class="text-gray-400">Habitat Concept</p>
+                    </div>
+                </div>
+                
+                <div id="model2Container" class="w-full h-80 bg-gray-900/50 rounded-xl mb-6 flex items-center justify-center border border-blue-500/20 relative overflow-hidden">
+                    <div class="text-center z-10">
+                        <i class="fas fa-spinner fa-spin text-4xl text-blue-400 mb-4"></i>
+                        <p class="text-gray-400">Loading 3D Model...</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="text-center glass-effect rounded-lg p-3 border border-purple-500/20">
+                        <div class="text-lg font-black text-purple-400">3.2K</div>
+                        <div class="text-xs text-gray-400">Vertices</div>
+                    </div>
+                    <div class="text-center glass-effect rounded-lg p-3 border border-blue-500/20">
+                        <div class="text-lg font-black text-blue-400">6.4K</div>
+                        <div class="text-xs text-gray-400">Faces</div>
+                    </div>
+                    <div class="text-center glass-effect rounded-lg p-3 border border-green-500/20">
+                        <div class="text-lg font-black text-green-400">5.8MB</div>
+                        <div class="text-xs text-gray-400">Size</div>
+                    </div>
+                </div>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Lunar surface base with regolith shielding for radiation protection, solar power arrays, and interconnected pressurized habitat modules for scientific research.
+                </p>
+                
+                <div class="flex space-x-3">
+                    <button onclick="rotateModel('model2')" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 deep-shadow">
+                        <i class="fas fa-sync-alt mr-2"></i>Rotate Model
+                    </button>
+                    <button onclick="zoomModel('model2', 'in')" class="bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 deep-shadow">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
+                    <button onclick="zoomModel('model2', 'out')" class="bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 deep-shadow">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-effect rounded-2xl p-8 border border-purple-500/30 deep-shadow mb-12">
+            <h2 class="text-3xl font-black text-white mb-8 text-center text-gradient-primary">Technical Specifications</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                        <i class="fas fa-cube text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Format</h4>
+                    <p class="text-gray-400">GLB/GLTF 2.0</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                        <i class="fas fa-ruler-combined text-blue-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Scale</h4>
+                    <p class="text-gray-400">1:1000 Metric</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                        <i class="fas fa-palette text-green-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Materials</h4>
+                    <p class="text-gray-400">PBR Workflow</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-yellow-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 deep-shadow">
+                        <i class="fas fa-tools text-yellow-400 text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-white mb-2">Software</h4>
+                    <p class="text-gray-400">Blender 3.4+</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="glass-effect rounded-2xl p-8 border border-purple-500/30 deep-shadow inline-block">
+                <h3 class="text-2xl font-black text-white mb-4">Want to Learn More?</h3>
+                <p class="text-gray-400 mb-6 max-w-md">Explore our mission and competition entry details</p>
+                <a href="/missions/" class="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-3 px-8 rounded-2xl transition-all duration-300 transform hover:scale-105 deep-shadow inline-flex items-center">
+                    View Our Mission
+                    <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script>
+    const models = {
+        model1: null,
+        model2: null
+    };
+
+    const scenes = {
+        model1: null,
+        model2: null
+    };
+
+    const cameras = {
+        model1: null,
+        model2: null
+    };
+
+    const renderers = {
+        model1: null,
+        model2: null
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initModel('model1', '{% static 'models/space-station.glb' %}', 'model1Container');
+        initModel('model2', '{% static 'models/Cylinder.glb' %}', 'model2Container');
+    });
+
+    function initModel(modelId, modelPath, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container || typeof THREE === 'undefined') return;
+
+        try {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ 
+                alpha: true, 
+                antialias: true,
+                powerPreference: "high-performance"
+            });
+            
+            renderer.setSize(container.offsetWidth, container.offsetHeight);
+            renderer.setClearColor(0x000000, 0);
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+            
+            container.innerHTML = '';
+            container.appendChild(renderer.domElement);
+
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.8);
+            scene.add(ambientLight);
+            
+            const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight1.position.set(5, 5, 5);
+            directionalLight1.castShadow = true;
+            scene.add(directionalLight1);
+            
+            const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.4);
+            directionalLight2.position.set(-5, -5, -5);
+            scene.add(directionalLight2);
+
+            const pointLight = new THREE.PointLight(0x4f46e5, 0.5, 100);
+            pointLight.position.set(0, 0, 5);
+            scene.add(pointLight);
+
+            const loader = new THREE.GLTFLoader();
+            loader.load(
+                modelPath,
+                function(gltf) {
+                    const model = gltf.scene;
+                    
+                    const box = new THREE.Box3().setFromObject(model);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3());
+                    
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    const scale = 2.0 / maxDim;
+                    model.scale.setScalar(scale);
+                    
+                    model.position.x = -center.x * scale;
+                    model.position.y = -center.y * scale;
+                    model.position.z = -center.z * scale;
+                    
+                    model.traverse((child) => {
+                        if (child.isMesh) {
+                            child.castShadow = true;
+                            child.receiveShadow = true;
+                        }
+                    });
+                    
+                    scene.add(model);
+                    models[modelId] = model;
+                    
+                    camera.position.z = 3.5;
+                    camera.lookAt(0, 0, 0);
+                    
+                    console.log(`Model ${modelId} loaded successfully!`);
+                },
+                function(xhr) {
+                    const percentLoaded = (xhr.loaded / xhr.total * 100);
+                    console.log(`Model ${modelId}: ${percentLoaded.toFixed(1)}% loaded`);
+                },
+                function(error) {
+                    console.error(`Error loading model ${modelId}:`, error);
+                    const geometry = new THREE.SphereGeometry(1, 32, 32);
+                    const material = new THREE.MeshPhongMaterial({
+                        color: modelId === 'model1' ? 0x8b5cf6 : 0x6366f1,
+                        shininess: 100,
+                        specular: 0x444444
+                    });
+                    const sphere = new THREE.Mesh(geometry, material);
+                    sphere.castShadow = true;
+                    scene.add(sphere);
+                    camera.position.z = 3;
+                    models[modelId] = sphere;
+                }
+            );
+
+            scenes[modelId] = scene;
+            cameras[modelId] = camera;
+            renderers[modelId] = renderer;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (models[modelId]) {
+                    models[modelId].rotation.y += 0.008;
+                }
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', function() {
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+            });
+
+        } catch (error) {
+            console.log(`3D model ${modelId} not loaded:`, error);
+        }
+    }
+
+    function rotateModel(modelId) {
+        if (models[modelId]) {
+            models[modelId].rotation.y += Math.PI / 4;
+        }
+    }
+
+    function zoomModel(modelId, direction) {
+        if (cameras[modelId]) {
+            if (direction === 'in') {
+                cameras[modelId].position.z = Math.max(1.5, cameras[modelId].position.z - 0.5);
+            } else {
+                cameras[modelId].position.z = Math.min(8, cameras[modelId].position.z + 0.5);
+            }
+        }
+    }
+
+    document.querySelectorAll('[id$="Container"]').forEach(container => {
+        let isHovering = false;
+        
+        container.addEventListener('mouseenter', function() {
+            isHovering = true;
+        });
+        
+        container.addEventListener('mouseleave', function() {
+            isHovering = false;
+        });
+    });
+</script>
+{% endblock %}

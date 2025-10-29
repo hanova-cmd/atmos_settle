@@ -3,6 +3,9 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 
+def models_gallery(request):
+    return render(request, 'models.html')
+
 def index(request):
     return render(request, 'index.html')
 
